@@ -246,10 +246,8 @@ export const DetailTourScreen: React.FC = () => {
 
       </div>
 
-      {/* STICKY BOTTOM BOOKING BAR - di atas bottom nav mobile */}
-      <div className="fixed left-0 right-0 bg-white border-t-2 border-slate-200 px-4 sm:px-6 py-3 shadow-2xl z-[60]"
-        style={{ bottom: '60px' }}
-      >
+      {/* STICKY BOTTOM BOOKING BAR - di atas bottom nav (mobile only) */}
+      <div className="fixed bottom-[60px] md:bottom-0 left-0 right-0 bg-white border-t-2 border-slate-200 px-4 sm:px-6 py-3 shadow-2xl z-[60]">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div>
             <span className="text-[10px] text-slate-400 font-bold uppercase block tracking-wider">
