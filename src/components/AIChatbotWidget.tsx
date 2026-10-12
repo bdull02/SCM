@@ -41,13 +41,13 @@ export const AIChatbotWidget: React.FC = () => {
     return (
       <button
         onClick={() => toggleAiDrawer(true)}
-        className="fixed bottom-20 sm:bottom-8 right-4 z-40 w-12 h-12 bg-[#19324d] hover:bg-[#122438] text-white rounded-full shadow-xl flex items-center justify-center border-2 border-cyan-400/40 hover:scale-110 active:scale-95 transition-all"
+        className="fixed bottom-32 sm:bottom-8 right-3 z-40 w-9 h-9 bg-[#19324d] hover:bg-[#122438] text-white rounded-full shadow-lg flex items-center justify-center border border-cyan-400/40 hover:scale-110 active:scale-95 transition-all"
         title="Tanya AI ZHS"
       >
         <div className="relative">
-          <Sparkles className="w-5 h-5 text-cyan-300" />
-          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-1 -right-1 animate-ping" />
-          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-1 -right-1" />
+          <Sparkles className="w-4 h-4 text-cyan-300" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 absolute -top-0.5 -right-0.5 animate-ping" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 absolute -top-0.5 -right-0.5" />
         </div>
       </button>
     );

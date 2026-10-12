@@ -23,7 +23,7 @@ export const DetailTourScreen: React.FC = () => {
   const totalEstimasi = basePricePerPerson * participants + maranggiPrice + transportPrice;
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 pb-36 md:pb-24">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800" style={{ paddingBottom: '140px' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
         
         {/* Navigation Breadcrumb */}
@@ -246,14 +246,16 @@ export const DetailTourScreen: React.FC = () => {
 
       </div>
 
-      {/* STICKY BOTTOM BOOKING BAR */}
-      <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 sm:px-6 py-3 z-50 shadow-lg">
+      {/* STICKY BOTTOM BOOKING BAR - di atas bottom nav mobile */}
+      <div className="fixed left-0 right-0 bg-white border-t-2 border-slate-200 px-4 sm:px-6 py-3 shadow-2xl z-[60]"
+        style={{ bottom: '60px' }}
+      >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div>
             <span className="text-[10px] text-slate-400 font-bold uppercase block tracking-wider">
               TOTAL ESTIMASI ({participants} PESERTA)
             </span>
-            <span className="text-lg sm:text-xl font-extrabold text-[#19324d]">
+            <span className="text-base sm:text-xl font-extrabold text-[#19324d]">
               Rp {totalEstimasi.toLocaleString('id-ID')}
             </span>
           </div>
@@ -269,7 +271,7 @@ export const DetailTourScreen: React.FC = () => {
                 setActiveScreen('booking-confirm');
               }
             }}
-            className="px-6 py-3 bg-[#19324d] hover:bg-[#122438] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all"
+            className="px-5 py-2.5 bg-[#19324d] hover:bg-[#122438] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all"
           >
             PESAN SEKARANG
           </button>
