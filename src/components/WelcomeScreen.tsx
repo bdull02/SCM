@@ -71,6 +71,13 @@ export const WelcomeScreen: React.FC = () => {
             Daftar
           </button>
           <button
+            id="btn-guide-register-nav"
+            onClick={() => setActiveScreen('guide-register')}
+            className="text-xs font-bold text-amber-700 px-4 py-2 rounded-full border border-amber-300 bg-amber-50 hover:bg-amber-100 transition-colors hidden sm:block"
+          >
+            Jadi Pemandu
+          </button>
+          <button
             id="btn-nav-login"
             onClick={() => setActiveScreen('login')}
             className="text-xs font-bold text-white px-5 py-2 rounded-full bg-[#19324d] hover:bg-[#122438] shadow-sm transition-transform active:scale-95"
@@ -115,6 +122,14 @@ export const WelcomeScreen: React.FC = () => {
               className="w-full sm:w-auto px-7 py-3.5 bg-white border border-slate-300 hover:bg-slate-50 text-[#19324d] font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-2xs transition-all flex items-center justify-center gap-2"
             >
               <span>Masuk ke Akun</span>
+            </button>
+
+            <button
+              id="btn-guide-register-hero"
+              onClick={() => setActiveScreen('guide-register')}
+              className="w-full sm:w-auto px-7 py-3.5 bg-amber-50 border border-amber-300 hover:bg-amber-100 text-amber-800 font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-2xs transition-all flex items-center justify-center gap-2"
+            >
+              <span>Daftar sebagai Pemandu</span>
             </button>
           </div>
         </div>

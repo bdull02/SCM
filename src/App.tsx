@@ -22,12 +22,36 @@ import { DirectChatScreen } from './components/DirectChatScreen';
 import { Navbar, BottomNav, DesktopFooter } from './components/Navbar';
 import { AIChatbotWidget } from './components/AIChatbotWidget';
 import { CancelBookingModal } from './components/screens/CancelBookingModal';
+// Guide Registration & Verification
+import { GuideRegisterScreen } from './components/screens/GuideRegisterScreen';
+import {
+  GuidePendingReviewScreen,
+  GuideVerificationStatusScreen,
+  GuideVerificationApprovedScreen,
+  GuideFixDocumentsScreen
+} from './components/screens/GuideVerificationScreens';
+// Guide Booking Confirmation
+import { GuideBookingRequestScreen } from './components/screens/GuideBookingRequestScreen';
+// Guide Operational
+import {
+  GuideStartTourScreen,
+  GuideTourSummaryScreen,
+  GuideNoShowReportScreen,
+  GuideDisputeScreen
+} from './components/screens/GuideOperationalScreens';
 
 export function App() {
   const { activeScreen, darkMode } = useAppStore();
 
   const isAuthScreen = activeScreen === 'welcome' || activeScreen === 'login' || activeScreen === 'register';
-  const isDedicatedScreen = isAuthScreen || activeScreen === 'direct-chat';
+  const isGuideRegistrationScreen = (
+    activeScreen === 'guide-register' ||
+    activeScreen === 'guide-pending-review' ||
+    activeScreen === 'guide-verification-status' ||
+    activeScreen === 'guide-verification-approved' ||
+    activeScreen === 'guide-fix-documents'
+  );
+  const isDedicatedScreen = isAuthScreen || activeScreen === 'direct-chat' || isGuideRegistrationScreen;
 
   const renderScreenContent = () => {
     switch (activeScreen) {
@@ -75,6 +99,31 @@ export function App() {
         return <GuideDashboard />;
       case 'direct-chat':
         return <DirectChatScreen />;
+      // Guide Registration & Verification Flow
+      case 'guide-register':
+        return <GuideRegisterScreen />;
+      case 'guide-pending-review':
+        return <GuidePendingReviewScreen />;
+      case 'guide-verification-status':
+        return <GuideVerificationStatusScreen />;
+      case 'guide-verification-approved':
+        return <GuideVerificationApprovedScreen />;
+      case 'guide-fix-documents':
+        return <GuideFixDocumentsScreen />;
+      // Guide Booking Confirmation Flow
+      case 'guide-booking-request':
+      case 'guide-reject-booking':
+        return <GuideBookingRequestScreen />;
+      // Guide Operational Flow
+      case 'guide-start-tour':
+      case 'guide-tour-active':
+        return <GuideStartTourScreen />;
+      case 'guide-tour-summary':
+        return <GuideTourSummaryScreen />;
+      case 'guide-no-show-report':
+        return <GuideNoShowReportScreen />;
+      case 'guide-dispute':
+        return <GuideDisputeScreen />;
       default:
         return <HomeScreen />;
     }

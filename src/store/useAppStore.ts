@@ -33,7 +33,21 @@ export type ScreenType =
   | 'notifications'
   | 'smart-match'
   | 'guide-dashboard'
-  | 'direct-chat';
+  | 'direct-chat'
+  // Guide registration & verification flow
+  | 'guide-register'
+  | 'guide-pending-review'
+  | 'guide-verification-status'
+  | 'guide-verification-approved'
+  | 'guide-fix-documents'
+  // Guide operational flow
+  | 'guide-booking-request'
+  | 'guide-reject-booking'
+  | 'guide-start-tour'
+  | 'guide-tour-active'
+  | 'guide-tour-summary'
+  | 'guide-no-show-report'
+  | 'guide-dispute';
 
 export interface User {
   id: string;

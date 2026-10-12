@@ -22,7 +22,8 @@ export const GuideDashboard: React.FC = () => {
     guideManagedDestinations,
     setGuideManagedDestinations,
     openDirectChat,
-    markTourCompleted
+    markTourCompleted,
+    setActiveScreen
   } = useAppStore();
 
   const [activeTab, setActiveTab] = useState<'tours' | 'chat' | 'destinations' | 'pricing' | 'reviews'>('tours');
@@ -256,6 +257,61 @@ export const GuideDashboard: React.FC = () => {
 
         </div>
 
+        {/* QUICK ACTIONS: AKSES CEPAT FLOW PEMANDU */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button
+            onClick={() => setActiveScreen('guide-booking-request')}
+            className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all text-left space-y-2 group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+            </div>
+            <div>
+              <p className="text-xs font-extrabold text-[#19324d] group-hover:text-emerald-700 transition-colors">Konfirmasi Booking</p>
+              <p className="text-[10px] text-slate-500">Tinjau & terima permintaan</p>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setActiveScreen('guide-start-tour')}
+            className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-sky-300 transition-all text-left space-y-2 group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center">
+              <ArrowRight className="w-5 h-5 text-sky-600" />
+            </div>
+            <div>
+              <p className="text-xs font-extrabold text-[#19324d] group-hover:text-sky-700 transition-colors">Mulai Tur Hari Ini</p>
+              <p className="text-[10px] text-slate-500">Aktifkan sesi & check-in</p>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setActiveScreen('guide-no-show-report')}
+            className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-amber-300 transition-all text-left space-y-2 group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center">
+              <AlertCircle className="w-5 h-5 text-amber-600" />
+            </div>
+            <div>
+              <p className="text-xs font-extrabold text-[#19324d] group-hover:text-amber-700 transition-colors">Laporkan No-Show</p>
+              <p className="text-[10px] text-slate-500">Wisatawan tidak hadir</p>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setActiveScreen('guide-dispute')}
+            className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-red-300 transition-all text-left space-y-2 group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center">
+              <AlertCircle className="w-5 h-5 text-red-500" />
+            </div>
+            <div>
+              <p className="text-xs font-extrabold text-[#19324d] group-hover:text-red-700 transition-colors">Ajukan Dispute</p>
+              <p className="text-[10px] text-slate-500">Sengketa escrow</p>
+            </div>
+          </button>
+        </div>
+
         {/* TAB NAVIGATION: TAMPILAN OPERASIONAL PEMANDU */}
         <div className="flex items-center gap-2 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar">
           <button
@@ -265,6 +321,7 @@ export const GuideDashboard: React.FC = () => {
                 ? 'bg-[#19324d] text-white shadow-sm'
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
+
           >
             <Calendar className="w-4 h-4" />
             <span>Tur Aktif & Permintaan ({activeTours.length})</span>
@@ -483,11 +540,11 @@ export const GuideDashboard: React.FC = () => {
 
                   <div className="flex items-center gap-2 shrink-0">
                     <button
-                      onClick={handleAcceptLead}
+                      onClick={() => { guideAcceptLeadBooking(); setActiveScreen('guide-booking-request'); }}
                       className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-sm transition-all flex items-center gap-1"
                     >
                       <Check className="w-3.5 h-3.5" />
-                      <span>Terima Booking</span>
+                      <span>Tinjau Booking</span>
                     </button>
                     <button
                       onClick={() => alert('Permintaan dialihkan ke pemandu lain di matching pool.')}
