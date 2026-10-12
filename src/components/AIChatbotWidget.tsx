@@ -36,27 +36,18 @@ export const AIChatbotWidget: React.FC = () => {
     return null;
   }
 
-  // Floating trigger button when closed
+  // Floating trigger button when closed — ikon bulat kompak
   if (!isAiDrawerOpen) {
     return (
       <button
         onClick={() => toggleAiDrawer(true)}
-        className="fixed bottom-20 sm:bottom-8 right-4 sm:right-8 z-40 px-4 py-3 bg-[#19324d] hover:bg-[#122438] text-white rounded-full shadow-2xl flex items-center gap-2.5 border-2 border-cyan-400/40 hover:scale-105 active:scale-95 transition-all group"
-        title="Buka Asisten AI Gemini ZHS"
+        className="fixed bottom-20 sm:bottom-8 right-4 z-40 w-12 h-12 bg-[#19324d] hover:bg-[#122438] text-white rounded-full shadow-xl flex items-center justify-center border-2 border-cyan-400/40 hover:scale-110 active:scale-95 transition-all"
+        title="Tanya AI ZHS"
       >
-        <div className="w-7 h-7 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-bold text-xs relative">
-          <Sparkles className="w-4 h-4 text-cyan-300 animate-pulse" />
-          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-0.5 -right-0.5 animate-ping" />
-          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-0.5 -right-0.5" />
-        </div>
-        <div className="text-left">
-          <div className="text-xs font-bold leading-tight flex items-center gap-1.5">
-            <span>Tanya AI ZHS</span>
-            <span className="text-[9px] bg-cyan-400/30 text-cyan-200 px-1 py-0.2 rounded font-mono font-bold">
-              Gemini 3.5
-            </span>
-          </div>
-          <span className="text-[10px] text-slate-300 block">Tanya apa saja & rekomendasi</span>
+        <div className="relative">
+          <Sparkles className="w-5 h-5 text-cyan-300" />
+          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-1 -right-1 animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-emerald-400 absolute -top-1 -right-1" />
         </div>
       </button>
     );
@@ -78,11 +69,11 @@ export const AIChatbotWidget: React.FC = () => {
   ];
 
   return (
-    <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end animate-in slide-in-from-bottom-4 duration-200">
+    <div className="fixed bottom-20 sm:bottom-6 right-4 z-50 flex flex-col items-end animate-in slide-in-from-bottom-4 duration-200">
       
-      {/* CHAT WINDOW (exact as Figma Pages 74-81) */}
-      <div className={`w-[92vw] sm:w-[440px] bg-white border border-slate-300 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${
-        isMinimized ? 'h-14' : 'h-[620px] max-h-[85vh]'
+      {/* CHAT WINDOW */}
+      <div className={`w-[85vw] sm:w-[400px] bg-white border border-slate-300 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 ${
+        isMinimized ? 'h-12' : 'h-[480px] sm:h-[560px] max-h-[70vh]'
       }`}>
         
         {/* Header Bar (Pages 74 & 75) */}

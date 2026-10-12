@@ -23,7 +23,7 @@ export const DetailTourScreen: React.FC = () => {
   const totalEstimasi = basePricePerPerson * participants + maranggiPrice + transportPrice;
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 pb-24 md:pb-16">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 pb-36 md:pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
         
         {/* Navigation Breadcrumb */}
@@ -246,8 +246,8 @@ export const DetailTourScreen: React.FC = () => {
 
       </div>
 
-      {/* STICKY BOTTOM BAR (exact as Figma Page 30 & 59) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-6 py-3.5 z-40 shadow-lg">
+      {/* STICKY BOTTOM BOOKING BAR */}
+      <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 sm:px-6 py-3 z-50 shadow-lg">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div>
             <span className="text-[10px] text-slate-400 font-bold uppercase block tracking-wider">
