@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { Bell, Search, Star, MapPin, Compass, ArrowRight, UserCheck } from 'lucide-react';
+import { Bell, Search, Star, MapPin, ArrowRight } from 'lucide-react';
 
 export const HomeScreen: React.FC = () => {
   const { currentUser, setActiveScreen } = useAppStore();
@@ -53,23 +53,36 @@ export const HomeScreen: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-4 space-y-6">
         
         {/* Greeting Banner */}
-        <div className="pt-2">
-          <h1 className="text-xl sm:text-2xl font-black text-[#19324d] tracking-tight">
-            {currentUser ? `Halo, ${currentUser.name} 👋` : 'Selamat datang, Sobat Wisata 👋'}
-          </h1>
-          <p className="text-xs text-slate-500 font-medium mt-0.5">
-            Platform reservasi tur cagar budaya dan hidden spot nusantara bergaransi Escrow 100% aman
-          </p>
+        <div className="pt-2 flex items-start justify-between">
+          <div className="flex-1">
+            <h1 className="text-xl sm:text-2xl font-black text-[#19324d] tracking-tight">
+              {currentUser ? `Halo, ${currentUser.name} 👋` : 'Selamat datang, Sobat Wisata 👋'}
+            </h1>
+            <p className="text-xs text-slate-500 font-medium mt-0.5">
+              Platform reservasi tur cagar budaya dan hidden spot nusantara bergaransi Escrow 100% aman
+            </p>
+          </div>
+          <button
+            onClick={() => setActiveScreen('notifications')}
+            className="relative p-2 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-colors ml-3 shrink-0"
+            aria-label="Notifikasi"
+          >
+            <Bell className="w-5 h-5 text-[#19324d]" />
+            {/* Badge notifikasi belum dibaca */}
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow">
+              3
+            </span>
+          </button>
         </div>
 
-        {/* SEARCH BAR (exact as Figma Page 19) */}
+        {/* SEARCH BAR - per flow 5.1.2 step 4 */}
         <div 
           onClick={() => setActiveScreen('explore')}
           className="bg-[#f1f5f9] border border-slate-200 rounded-2xl px-4 py-3 flex items-center gap-3 cursor-pointer hover:border-slate-300 transition-colors shadow-sm"
         >
           <Search className="w-5 h-5 text-slate-400" />
           <span className="text-xs sm:text-sm text-slate-400">
-            Cari destinasi wisata, tur budaya, atau pemandu resmi...
+            Cari booking atau jadwal tur...
           </span>
         </div>
 
