@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { Bell, Search, Star, MapPin, ArrowRight } from 'lucide-react';
+import { Bell, Search, Star, ArrowRight } from 'lucide-react';
 
 export const HomeScreen: React.FC = () => {
   const { currentUser, setActiveScreen } = useAppStore();
@@ -8,42 +8,38 @@ export const HomeScreen: React.FC = () => {
   const tourSpots = [
     {
       id: 'situ-buleud',
-      title: 'Trip to Situ Buleud',
-      guide: 'Bambang Pamungkas',
+      title: 'Situ Buleud & Air Mancur Sri Baduga',
       location: 'Nagri Kidul, Kec. Purwakarta, Kab. Purwakarta',
       rating: '9.4/10 (20.290 review)',
       priceWeekday: 'Rp. 35.000',
-      priceWeekend: 'Rp. 50.000',
+      category: 'Cagar Budaya',
       image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'gracia-spa',
       title: 'Gracia Spa Hot Spring Pool',
-      guide: 'Hanif Ramadhan',
       location: 'Desa Cikondang, Kec. Ciater, Kabupaten Subang',
       rating: '9.2/10 (8.409 review)',
       priceWeekday: 'Rp. 100.000',
-      priceWeekend: 'Rp. 150.000',
+      category: 'Wisata Alam',
       image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'benteng-vredeburg',
       title: 'Museum Benteng Vredeburg',
-      guide: 'Bigmo',
       location: 'Ngupasan, Kec. Gondomanan, Kota Yogyakarta',
       rating: '9.4/10 (20.290 review)',
       priceWeekday: 'Rp. 14.000',
-      priceWeekend: 'Rp. 24.000',
+      category: 'Museum & Sejarah',
       image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'gunung-bromo',
-      title: 'Tur Sunrise Gunung Bromo',
-      guide: 'Wahyu Kurniawan',
+      title: 'Tur Sunrise Savana Gunung Bromo',
       location: 'Sumberkedawung, Kec. Leces, Kabupaten Probolinggo',
       rating: '9.2/10 (1.416 review)',
       priceWeekday: 'Rp. 400.000',
-      priceWeekend: 'Rp. 450.000',
+      category: 'Petualangan',
       image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80'
     }
   ];
@@ -86,27 +82,6 @@ export const HomeScreen: React.FC = () => {
           </span>
         </div>
 
-        {/* QUICK SHORTCUTS */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
-          <button
-            onClick={() => setActiveScreen('explore')}
-            className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-[#19324d] font-bold hover:bg-slate-50 transition-colors shadow-2xs whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
-          >
-            <span>🧭 Jelajahi Wisata</span>
-          </button>
-          <button
-            onClick={() => setActiveScreen('booking-detail')}
-            className="px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-300 text-sky-900 font-bold hover:bg-sky-100 transition-colors shadow-2xs whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
-          >
-            <span>🎟️ Riwayat Booking</span>
-          </button>
-          <button
-            onClick={() => setActiveScreen('voucher')}
-            className="px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 font-bold hover:bg-amber-100 transition-colors shadow-2xs whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
-          >
-            <span>🎁 Voucher Diskon</span>
-          </button>
-        </div>
 
         {/* UNGGULAN HERO BANNER (exact as Figma Page 19) */}
         <div 
@@ -169,14 +144,14 @@ export const HomeScreen: React.FC = () => {
                 {/* Info */}
                 <div className="flex-1 flex flex-col justify-between min-w-0">
                   <div>
-                    <h4 className="font-bold text-[#19324d] text-sm leading-snug line-clamp-1">
+                    <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200">
+                      {spot.category}
+                    </span>
+                    <h4 className="font-bold text-[#19324d] text-sm leading-snug line-clamp-2 mt-1.5">
                       {spot.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 font-medium mt-0.5">
-                      Guide: {spot.guide}
-                    </p>
                     <p className="text-[10px] text-slate-400 line-clamp-1 mt-0.5">
-                      {spot.location}
+                      📍 {spot.location}
                     </p>
                     <div className="flex items-center gap-1 text-[10px] text-amber-500 font-semibold mt-1">
                       <Star className="w-3 h-3 fill-amber-400" />
